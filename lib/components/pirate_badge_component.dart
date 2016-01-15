@@ -1,4 +1,5 @@
 import 'package:angular2/angular2.dart' show Component, OnInit, View;
+import 'package:grassykb/services/pirate_name_service.dart';
 
 @Component(selector: 'pirate-badge', templateUrl: 'pirate_badge_component.html')
 class PirateBadge implements OnInit {

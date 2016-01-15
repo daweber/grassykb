@@ -1,4 +1,5 @@
 import 'package:angular2/angular2.dart' show Component, View;
+import 'package:grassykb/components/pirate_badge_component.dart';
 
 @Component(
     selector: 'app',
