@@ -1,20 +1,20 @@
 import 'package:angular2/angular2.dart' show Component, OnInit, View;
-import 'package:grassykb/services/pirate_name_service.dart';
+import 'package:grassykb/services/search_service.dart';
 
-@Component(selector: 'pirate-badge', templateUrl: 'pirate_badge_component.html')
-class PirateBadge implements OnInit {
+@Component(selector: 'search-page', templateUrl: 'search_page_component.html')
+class SearchPage implements OnInit {
   String badgeName = "";
   String buttonText = "Aye! Gimme a name!";
   bool enableButton = false;
   bool enableInput = false;
 
-  final PirateNameService _pirateService;
+  final SearchService _searchService;
 
-  PirateBadge(this._pirateService);
+  SearchPage(this._searchService);
 
   ngOnInit() async {
     try {
-      await _pirateService.readyThePirates();
+      await _searchService.readySources();
       // on success
       enableButton = true;
       enableInput = true;
@@ -24,12 +24,12 @@ class PirateBadge implements OnInit {
     }
   }
 
-  void generateBadge() {
-    badgeName = _pirateService.getPirateName();
+  void generatePage() {
+    badgeName = _searchService.getResults();
   }
 
-  void updateBadge(String inputName) {
-    badgeName = _pirateService.getPirateName(firstName: inputName);
+  void updatePage(String inputName) {
+    badgeName = _searchService.getResults(firstName: inputName);
     if (inputName
         .trim()
         .isEmpty) {
