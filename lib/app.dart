@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:angular2/angular2.dart' show Component, View;
 import 'package:grassykb/components/search_page_component.dart';
 
@@ -18,4 +20,11 @@ class App {
     print('search()');
     sResults = "Search Results for: '$sString'";
   }
+
+  void enterSearch(KeyboardEvent event) {
+    if (event.keyCode == KeyCode.ENTER) {
+      search();
+    }
+  }
+
 }
