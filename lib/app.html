@@ -1,14 +1,14 @@
 <nav class="navbar">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a id="brand-link" class="navbar-brand" href="https://daweber.com/grassykb/web">GrassyKB</a>
+            <a id="brand-link" class="f-comfortaa navbar-brand" href="https://daweber.com/grassykb/web">GrassyKB</a>
         </div><!-- navbar-header -->
         <form id="search-form" class="form-inline">
             <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon">>></div>
-                    <input id="search-box" class="form-control">
-                    <div class="btn btn-primary input-group-addon">Search</div>
+                    <input (input)="preSearch($event.target.value)" id="search-box" class="form-control">
+                    <div (click)="search()" class="btn btn-primary input-group-addon">Search</div>
                 </div><!-- input-group -->
             </div><!-- form-group -->
         </form><!-- search-form -->
@@ -19,15 +19,25 @@
     <p id="dev-disclaimer" class="bg-info text-muted">This is a Live development demo for the Grassy Knowl-edge Base
         (Gkb). This project was started on Jan 1st, 2016. More details available @ <a
                 href="https://www.daweber.com/apps/grassykb.php">Project Home <i class="fa fa-external-link"></i></a>.
-        TODONEXT: bind search string to breadcrumb, init action on search click.</p>
+        TODO-NEXT: accept <kbd>enter</kbd> as button click.</p>
 </div>
-
-<breadcrumb-nav>breadcrumb-nav Placeholder</breadcrumb-nav>
+<nav class="navbar">
+    <div class="container-fluid">
+        <ol class="breadcrumb">
+            <li><a href="https://daweber.com">daweber.com</a></li>
+            <li><a href="https://daweber.com/grassykb/web">GrassyKB</a></li>
+            <li>{{sString}}</li>
+            <li class="text-success"><i class="fa fw fa-lightbulb-o"></i> Enlightenment</li>
+        </ol>
+    </div><!-- container-fluid -->
+</nav><!-- navbar -->
 
 <div id="main-container" class="container">
     <div id="content-row" class="row">
         <div id="content-div" class="well">
-            <gkb-results>gkb-results Placeholder</gkb-results>
+            <div id="search-results">
+                {{sResults}}
+            </div>
         </div><!--content div -->
     </div><!-- content-row -->
 </div><!-- main-container -->
@@ -40,6 +50,3 @@
         </blockquote>
     </div><!-- container -->
 </div><!-- footer-div -->
-
-<h1>Pirate badge</h1>
-<search-page></search-page>

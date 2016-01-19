@@ -1,7 +1,9 @@
 import 'package:angular2/angular2.dart' show Component, OnInit, View;
 import 'package:grassykb/services/search_service.dart';
 
-@Component(selector: 'search-page', templateUrl: 'search_page_component.html')
+@Component(
+    selector: 'search-page',
+    templateUrl: 'search_page_component.html')
 class SearchPage implements OnInit {
   String badgeName = "";
   String buttonText = "Aye! Gimme a name!";

@@ -5,4 +5,17 @@ import 'package:grassykb/components/search_page_component.dart';
     selector: 'app',
     templateUrl: 'app.html',
     directives: const [SearchPage])
-class App {}
+class App {
+  var sString = "initSearchString";
+  var sResults = "initSearchResults";
+
+  void preSearch(String searchFor) {
+    print('preSearch()');
+    sString = searchFor;
+  }
+
+  void search() {
+    print('search()');
+    sResults = "Search Results for: '$sString'";
+  }
+}
